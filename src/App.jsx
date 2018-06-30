@@ -7,7 +7,7 @@ import { hot } from 'react-hot-loader'
 import { store, history } from './redux/configureStore'
 
 import {
-  Dashboard, Home, Login, SignUp,
+  Home,
 } from '@/loadables'
 
 import ErrorBoundry from './ErrorBoundry'
@@ -17,9 +17,6 @@ export default hot(module)(() => (
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route path="/dashboard" component={Dashboard} />
           <Route path="/" component={Home} />
         </Switch>
       </ConnectedRouter>

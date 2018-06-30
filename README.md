@@ -2,7 +2,7 @@
 
 This repo is the example of [react-starter-kit](https://github.com/abrcdf1023/react-starter-kit).
 
-This repo has a example of
+This example repo incldes
 
 * redux
 * redux-ovservable

@@ -30,10 +30,16 @@ export default class Home extends Component {
   state={}
 
   componentDidMount() {
-    this.props.fetchGetCharacterList()
+    const {
+      fetchGetCharacterList,
+    } = this.props
+    fetchGetCharacterList()
   }
 
   render() {
+    const {
+      selectedAmiibo,
+    } = this.state
     const {
       entities, amiiboList, fetchGetAmiiboList, fetchGetAmiiboListCancel,
     } = this.props
@@ -41,15 +47,12 @@ export default class Home extends Component {
     return (
       <Container style={{ paddingTop: '2rem' }}>
         <Header>
-      I18N support
+          I18N support
         </Header>
         <I18N />
         <Header>
-      Simple fetch
+          Simple fetch
         </Header>
-        <p>
-      Our async solution is using redux observable and if you dig in deep you'll find that we have resolve some annoying issue
-        </p>
         <Select
           placeholder="Select amiibo"
           options={_map(entities.characterList, el => ({
@@ -57,45 +60,45 @@ export default class Home extends Component {
             value: el.name,
             text: el.name,
           }))}
-          onChange={(e, data) => this.setState({ amiibo: data.value })}
+          onChange={(e, data) => this.setState({ selectedAmiibo: data.value })}
         />
         <Button
           onClick={() => {
             fetchGetAmiiboList({
-              name: this.state.amiibo,
+              name: selectedAmiibo,
             })
           }}
         >
-    Get Amiibo
+          Get Amiibo
         </Button>
         <Button
           onClick={() => {
             fetchGetAmiiboListCancel()
           }}
         >
-    Cancel
+         Cancel
         </Button>
         { amiiboList.error ? <Message header={amiiboList.errorMsg} negative /> : null }
         <Segment loading={amiiboList.isGetting}>
           <Card.Group>
             {
-          _map(entities.amiiboList, amiibo => (
-            <Card key={amiibo.tail}>
-              <Image src={amiibo.image} />
-              <Card.Content>
-                <Card.Header>
-                  {amiibo.name}
-                </Card.Header>
-                <Card.Meta>
-                  {amiibo.gameSeries}
-                </Card.Meta>
-                <Card.Description>
-                  {amiibo.amiiboSeries}
-                </Card.Description>
-              </Card.Content>
-            </Card>
-          ))
-        }
+              _map(entities.amiiboList, amiibo => (
+                <Card key={amiibo.tail}>
+                  <Image src={amiibo.image} />
+                  <Card.Content>
+                    <Card.Header>
+                      {amiibo.name}
+                    </Card.Header>
+                    <Card.Meta>
+                      {amiibo.gameSeries}
+                    </Card.Meta>
+                    <Card.Description>
+                      {amiibo.amiiboSeries}
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+              ))
+            }
           </Card.Group>
         </Segment>
       </Container>
