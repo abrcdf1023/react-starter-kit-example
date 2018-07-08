@@ -16,6 +16,12 @@ export default class Home extends Component {
       amiiboList: PropTypes.objectOf(PropTypes.any).isRequired,
     }).isRequired,
 
+    characterList: PropTypes.shape({
+      isGetting: PropTypes.bool.isRequired,
+      error: PropTypes.bool.isRequired,
+      errorMsg: PropTypes.string,
+    }).isRequired,
+
     amiiboList: PropTypes.shape({
       isGetting: PropTypes.bool.isRequired,
       error: PropTypes.bool.isRequired,
@@ -41,7 +47,7 @@ export default class Home extends Component {
       selectedAmiibo,
     } = this.state
     const {
-      entities, amiiboList, fetchGetAmiiboList, fetchGetAmiiboListCancel,
+      entities, characterList, amiiboList, fetchGetAmiiboList, fetchGetAmiiboListCancel,
     } = this.props
 
     return (
@@ -54,6 +60,7 @@ export default class Home extends Component {
           Simple fetch
         </Header>
         <Select
+          loading={characterList.isGetting}
           placeholder="Select amiibo"
           options={_map(entities.characterList, el => ({
             key: el.key,

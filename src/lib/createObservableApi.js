@@ -8,7 +8,7 @@ import * as apis from '@/api'
  * @param {any} api
  * @param {string} apiName
  */
-export const createApi$ = (payload, apiName) => {
+const createObservableApi = (payload, apiName) => {
   const api = _get(apis, apiName)
   if (api) {
     return new Observable(async (observer) => {
@@ -19,3 +19,5 @@ export const createApi$ = (payload, apiName) => {
   }
   throw new Error(`Undefined api name "${apiName}" please check you have this api.`)
 }
+
+export default createObservableApi
