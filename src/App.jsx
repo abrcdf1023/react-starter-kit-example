@@ -12,7 +12,7 @@ import {
 
 import ErrorBoundry from './ErrorBoundry'
 
-export default hot(module)(() => (
+const App = () => (
   <ErrorBoundry>
     <Provider store={store}>
       <ConnectedRouter history={history}>
@@ -22,4 +22,6 @@ export default hot(module)(() => (
       </ConnectedRouter>
     </Provider>
   </ErrorBoundry>
-))
+)
+
+export default hot(module)(App)
