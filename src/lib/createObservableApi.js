@@ -5,7 +5,6 @@ import * as apis from '@/api'
 /**
  * Create observable api
  * @param {any} payload
- * @param {any} api
  * @param {string} apiName
  */
 const createObservableApi = (payload, apiName) => {
