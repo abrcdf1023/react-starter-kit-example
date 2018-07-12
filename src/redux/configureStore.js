@@ -7,11 +7,14 @@ import createHistory from 'history/createBrowserHistory'
 
 import * as schema from '@/api/schema'
 
+import locales from './modules/locales'
+import localesEpics from './modules/locales/epics'
 import entities from './modules/entities'
 import { pagesEpics, pages } from './modules/pages'
 
 // reducer
 const reducer = combineReducers({
+  locales,
   entities,
   pages,
   router: routerReducer,
@@ -42,5 +45,5 @@ if (process.env.NODE_ENV !== 'production') {
 
 export const store = createStore(reducer, initialState, applyMiddleware(...middleware))
 
-const rootEpic = combineEpics(pagesEpics)
+const rootEpic = combineEpics(pagesEpics, localesEpics)
 epicMiddleware.run(rootEpic)

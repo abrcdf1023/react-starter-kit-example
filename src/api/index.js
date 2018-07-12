@@ -11,3 +11,5 @@ const config = {
 export const fetchGetCharacterList = () => axios.get('http://www.amiiboapi.com/api/character', config)
 
 export const fetchGetAmiiboList = payload => axios.get(`http://www.amiiboapi.com/api/amiibo/?${queryString.stringify(payload)}`, config)
+
+export const fetchGetLocale = payload => axios.get(`/static/locales/${payload}.json`)

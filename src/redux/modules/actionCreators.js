@@ -1,6 +1,13 @@
 import { createActions } from 'redux-actions'
 
 const actionMap = {
+  LOCALES: {
+    FETCH_GET_LOCALE: undefined,
+    FETCH_GET_LOCALE_SUCCESS: undefined,
+    FETCH_GET_LOCALE_FAILURE: undefined,
+
+    SET_LANG: undefined,
+  },
   ENTITIES: {
     CHARACTER_LIST: {
       ADD_CHARACTER_LIST_ENTITIES: undefined,

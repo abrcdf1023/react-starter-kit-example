@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import {
   Container, Button, Header, Card, Image, Select, Message, Segment,
 } from 'semantic-ui-react'
-import withHomeProps from './withHomeProps'
 
-import I18N from '@/components/I18N'
+import withHomeProps from './withHomeProps'
+import SelectLang from './SelectLang'
 
 @withHomeProps
 export default class Home extends Component {
@@ -47,15 +47,16 @@ export default class Home extends Component {
       selectedAmiibo,
     } = this.state
     const {
-      entities, characterList, amiiboList, fetchGetAmiiboList, fetchGetAmiiboListCancel,
+      entities, characterList, amiiboList, fetchGetAmiiboList,
+      fetchGetAmiiboListCancel,
     } = this.props
 
     return (
       <Container style={{ paddingTop: '2rem' }}>
         <Header>
-          I18N support
+          react-intl support
         </Header>
-        <I18N />
+        <SelectLang />
         <Header>
           Simple fetch
         </Header>

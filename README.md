@@ -11,7 +11,7 @@ This example repo incldes
 * react-router-dom
 * normalizr
 * immutable
-* i18next
+* react-intl
 
 ### Basic Usage
 
