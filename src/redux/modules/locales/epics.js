@@ -4,7 +4,7 @@ import {
   switchMap, flatMap, catchError,
 } from 'rxjs/operators'
 
-import { createObservableApi } from '@/lib'
+import { getApi } from '@/utils'
 
 import { FETCH_GET_LOCALE } from './types'
 import {
@@ -16,7 +16,7 @@ import {
 
 export const fetchGetLocaleEpic = action$ => action$.pipe(
   ofType(FETCH_GET_LOCALE),
-  switchMap(action => createObservableApi(action.payload, 'fetchGetLocale')
+  switchMap(action => getApi(action.payload, 'fetchGetLocale')
     .pipe(
       flatMap(response => [
         fetchGetLocaleSuccess(response.data),

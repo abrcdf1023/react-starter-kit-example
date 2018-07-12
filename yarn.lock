@@ -910,6 +910,15 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@e-group/frontend-utils@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@e-group/frontend-utils/-/frontend-utils-2.0.2.tgz#4bd1abca648723a0f043c6b4302541facca1f968"
+  dependencies:
+    immutable "^4.0.0-rc.9"
+    lodash "^4.17.10"
+    redux-actions "^2.4.0"
+    rxjs "^6.2.1"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -7925,7 +7934,7 @@ reduce-reducers@^0.1.0:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.5.tgz#ff77ca8068ff41007319b8b4b91533c7e0e54576"
 
-redux-actions@^2.3.0:
+redux-actions@^2.3.0, redux-actions@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-2.4.0.tgz#620df42d264af88366b4e919c46ae68da7c9ce7c"
   dependencies:

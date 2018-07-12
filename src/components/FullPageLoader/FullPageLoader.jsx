@@ -4,12 +4,12 @@ import { Loader, Dimmer } from 'semantic-ui-react'
 
 import { fullpage } from './FullPageLoader.scss'
 
-const FullPageLoader = ({ message, show, ...passProps }) => {
+const FullPageLoader = ({ message, show, indeterminate }) => {
   if (!show) return null
   return (
     <div className={fullpage}>
       <Dimmer active>
-        <Loader size="large" {...passProps}>
+        <Loader size="large" indeterminate={indeterminate}>
           {message}
         </Loader>
       </Dimmer>
@@ -17,14 +17,16 @@ const FullPageLoader = ({ message, show, ...passProps }) => {
   )
 }
 
-FullPageLoader.defaultProps = {
-  message: 'Page Loading...',
-  show: true,
-}
-
 FullPageLoader.propTypes = {
   message: PropTypes.string,
   show: PropTypes.bool,
+  indeterminate: PropTypes.bool,
+}
+
+FullPageLoader.defaultProps = {
+  message: 'Page Loading...',
+  show: true,
+  indeterminate: false,
 }
 
 export default FullPageLoader

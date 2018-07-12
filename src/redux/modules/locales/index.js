@@ -1,5 +1,5 @@
 import { set } from 'immutable'
-import { createFetchReducer } from '@/lib'
+import { createFetchReducer } from '@e-group/frontend-utils'
 import {
   FETCH_GET_LOCALE,
   FETCH_GET_LOCALE_SUCCESS,

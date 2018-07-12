@@ -61,6 +61,7 @@ export default class Home extends Component {
           Simple fetch
         </Header>
         <Select
+          lazyLoad
           loading={characterList.isGetting}
           placeholder="Select amiibo"
           options={_map(entities.characterList, el => ({

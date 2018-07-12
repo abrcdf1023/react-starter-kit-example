@@ -1,6 +1,6 @@
 // import Immutable from 'immutable'
 import { combineReducers } from 'redux-immutable'
-import { createFetchReducer } from '@/lib'
+import { createFetchReducer } from '@e-group/frontend-utils'
 import {
   FETCH_GET_CHARACTER_LIST,
   FETCH_GET_CHARACTER_LIST_SUCCESS,

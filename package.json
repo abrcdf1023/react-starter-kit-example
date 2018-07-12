@@ -13,6 +13,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"@babel/polyfill": "^7.0.0-beta.52",
+		"@e-group/frontend-utils": "^2.0.2",
 		"axios": "^0.18.0",
 		"history": "^4.7.2",
 		"immutable": "^4.0.0-rc.9",

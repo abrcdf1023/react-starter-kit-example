@@ -6,7 +6,7 @@ import {
 
 import { normalize } from 'normalizr'
 
-import { createObservableApi } from '@/lib'
+import { getApi } from '@/utils'
 import { addCharacterListEntities } from '@/redux/modules/entities/characterList/actions'
 import { addAmiiboListEntities } from '@/redux/modules/entities/amiiboList/actions'
 import {
@@ -17,7 +17,7 @@ import { FETCH_GET_CHARACTER_LIST, FETCH_GET_AMIIBO_LIST, FETCH_GET_AMIIBO_LIST_
 
 export const fetchGetCharacterListEpic = (action$, state$, { schema }) => action$.pipe(
   ofType(FETCH_GET_CHARACTER_LIST),
-  switchMap(action => createObservableApi(action.payload, 'fetchGetCharacterList')
+  switchMap(action => getApi(action.payload, 'fetchGetCharacterList')
     .pipe(
       flatMap((response) => {
         const { entities } = normalize(response.data.amiibo, schema.characterList)
@@ -33,7 +33,7 @@ export const fetchGetCharacterListEpic = (action$, state$, { schema }) => action
 export const fetchGetAmiiboEpic = (action$, state$, { schema }) => action$.pipe(
   ofType(FETCH_GET_AMIIBO_LIST),
   debounceTime(500),
-  switchMap(action => createObservableApi(action.payload, 'fetchGetAmiiboList')
+  switchMap(action => getApi(action.payload, 'fetchGetAmiiboList')
     .pipe(
       flatMap((response) => {
         const { entities } = normalize(response.data.amiibo, schema.amiiboList)
