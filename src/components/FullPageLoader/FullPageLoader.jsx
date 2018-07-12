@@ -4,12 +4,12 @@ import { Loader, Dimmer } from 'semantic-ui-react'
 
 import { fullpage } from './FullPageLoader.scss'
 
-const FullPageLoader = ({ message, show }) => {
+const FullPageLoader = ({ message, show, ...passProps }) => {
   if (!show) return null
   return (
     <div className={fullpage}>
       <Dimmer active>
-        <Loader size="large">
+        <Loader size="large" {...passProps}>
           {message}
         </Loader>
       </Dimmer>

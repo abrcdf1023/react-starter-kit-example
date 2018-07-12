@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import zhLocaleData from 'react-intl/locale-data/zh'
-import axios from 'axios'
 
 import FullPageLoader from '@/components/FullPageLoader'
 
@@ -12,6 +11,7 @@ import withIntl from './withIntl'
 export default class Intl extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    isGetting: PropTypes.bool.isRequired,
     locale: PropTypes.string,
     messages: PropTypes.objectOf(PropTypes.any),
 
@@ -31,9 +31,10 @@ export default class Intl extends Component {
 
   render() {
     const {
-      children, locale, messages,
+      children, locale, messages, isGetting,
     } = this.props
     if (locale) {
+      if (isGetting) return (<FullPageLoader message="" indeterminate />)
       return (
         <IntlProvider
           defaultLocale="zh"
@@ -45,8 +46,6 @@ export default class Intl extends Component {
         </IntlProvider>
       )
     }
-    return (
-      <FullPageLoader />
-    )
+    return null
   }
 }
